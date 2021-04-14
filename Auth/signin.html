@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>SignIn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="signin.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+   <div class="header">
+    <h1>SignIn Here</h1>
+    
+  </div>
+  <div class="container">
+    <div class="title">Sign In</div>
+    <div class="content">
+      <form>
+        <div class="user-details">
+         
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" id="emails" placeholder="Enter your email" required>
+          </div>
+        
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" id="passwords" placeholder="Enter your password" required>
+          </div>
+        </div>
+        <div class="button">
+          <input type="button" value="SignIn" onclick="LoginUser()">
+          
+        </div>
+    </form>
+        <div class="text">
+           <a href="./register.html"><h4 style="color: black;">Don't have account?</h4></a>
+        </div>
+      
+    </div>
+  </div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBV_uoKNwuHmkLu_NeBSPVy3LVGMc7O36g",
+    authDomain: "jobseekingwebsite.firebaseapp.com",
+    projectId: "jobseekingwebsite",
+    storageBucket: "jobseekingwebsite.appspot.com",
+    messagingSenderId: "408662152012",
+    appId: "1:408662152012:web:2764258d88a9486d6c75e9",
+    measurementId: "G-M0TWR6NJ7X"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+ function LoginUser(){
+   var email=document.getElementById('emails').value;
+   var password=document.getElementById('passwords').value;
+   firebase.auth().signInWithEmailAndPassword(email,password).then(function(){
+    //var id=firebase.auth().currentUser.uid;
+   // window.location.replace("file:///C:/Users/Rabia/Desktop/firebase%20and%20web/webProject2.html");
+     // localStorage.setItem('id',id);
+     alert('LoginIn successfully');
+
+    
+   }).catch(function(error){
+
+    var errorCode=error.code;
+    var errorMsg=error.message;
+    alert('LoginIn unsuccessfull');
+
+   });
+  }
+</script>
+</body>
+</html>
