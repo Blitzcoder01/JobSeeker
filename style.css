@@ -162,7 +162,7 @@ a.active,a:hover{
     font-family: 'Anton', Arial, sans-serif;
     user-select: none;
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 60px;
     
     transition: all 0.25s ease-out;
 }
