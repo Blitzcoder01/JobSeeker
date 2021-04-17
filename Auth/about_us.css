@@ -1,1 +1,64 @@
-ajjf
+*{
+    background: url("../images/index.jpg");
+}
+h2{
+    padding-top: 70px;
+    font-size: 50px;
+    letter-spacing: 1px;
+    padding-left: 20px;
+}
+p{
+    font-size: 18px;
+    padding-top: -10px;
+    padding-left: 40px;
+    padding-right: 70px;
+    text-align: justify;
+    line-height: 25px;
+}
+img{
+    width: 300px;
+    height: 300px;
+    padding-left: 0px;
+    padding-right: 10px;
+}
+/*about class ended by here*/
+
+.list{
+    padding-left: 60px;
+    padding-right: 450px;
+    font-size: 18px;
+    text-align: justify;
+    list-style-type: disc;
+    
+}
+
+
+.members_img{
+    width:200px;
+    height:200px;
+    margin-left: 85px;
+    border-radius: 10%;
+    margin-top: 20px;
+
+}
+
+
+.members_img:hover{
+    color: #111; 
+    box-shadow: 0 0 50px gray; 
+}
+
+h3{
+    padding-top: 30px;
+    font-size: 26px;
+    margin-left: 100px;
+}
+@media (max-width: 1080px){
+
+    .members_img{
+        width:  200px;
+        height: 200px;
+        margin-left: 15px;
+        
+    
+}
