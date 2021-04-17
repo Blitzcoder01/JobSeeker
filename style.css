@@ -13,6 +13,9 @@ label.logo{
 body{
     font-family: 'Quattrocento', serif;
 }
+#about-us{
+    background: url("../images/index.jpg");
+}
 /*part of header starts from here*/
 .header{
     background-color: skyblue;
