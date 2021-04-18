@@ -14,11 +14,15 @@ body{
     font-family: 'Quattrocento', serif;
 }
 #about-us{
-    background: url("../images/index.jpg");
+    background: url("../JobSeeker/images/index.jpg");
 }
+/* #bgimg{
+    background: url("../JobSeeker/images/index.jpg");
+} */
 /*part of header starts from here*/
 .header{
-    background-color: skyblue;
+    /* background-color: skyblue; */
+    background:linear-gradient(#040270,skyblue);
     
 }
 td{
@@ -57,7 +61,9 @@ nav{
     height: 60px;
     width: 100%;
     text-decoration: transparent;
-    background-color: rgb(76, 197, 245);
+    background:linear-gradient(#040270,skyblue);
+    
+   
     
 }
 
@@ -72,17 +78,37 @@ nav ul li{
     margin: 0 5px;
 
 }
-nav ul li a{
+/* nav ul li a{
     color: gray;
     font-size: 17px;
     text-transform: uppercase;
 
-}
-a.active,a:hover{
+}  */
+/* a.active,a:hover{
     background: peachpuff ;
     transition: .5s;
     border-radius: 5px;
 
+}  */
+
+nav ul li a{
+    text-decoration: none;
+    color:#000000;
+    font-size: 17px;
+    text-transform: uppercase;
+    /* font-size: 14px; */
+    padding:5px 10px;
+    border:1px solid transparent;
+    border-radius: 6px;
+    transition: 0.6s ease;
+}
+nav ul li a:hover,a.active{
+
+
+    /* background-color: #0563df; */
+    background-color: #FFFFFF;
+    color:#000000;
+ 
 }
 .checkbtn{
     font-size: 30px;
@@ -112,7 +138,7 @@ a.active,a:hover{
 
                 }
     }
-    ul{
+     ul{
         position: fixed;
         width: 100%;
         height:100vh;
@@ -124,7 +150,7 @@ a.active,a:hover{
         transition: all .5s;
     
     }
-    nav ul li{
+    /*nav ul li{
         display: block;
         margin: 50px 0;
         line-height: 30px;
@@ -136,6 +162,31 @@ a.active,a:hover{
         background: none;
         color: peachpuff;
 
+    } */
+    nav{
+        flex:1;
+        text-align: right;
+    }
+    nav ul li{
+        list-style: none;
+        display:inline-block;
+        margin-right: 30px;
+    }
+    nav ul li a{
+        text-decoration: none;
+        color:#000000;
+        font-size: 14px;
+        padding:5px 10px;
+        border:1px solid transparent;
+        border-radius: 6px;
+        transition: 0.6s ease;
+    }
+    nav ul li a:hover,a.active{
+    
+    
+        background-color: #FFFFFF;
+        color:#000000;
+     
     }
     #check:checked ~ ul{
         left: 0;
@@ -145,7 +196,8 @@ a.active,a:hover{
 }
 /*end of nav bar*/
 .banner{
-    background-color: skyblue;
+    /* background-color: skyblue; */
+    background:linear-gradient(#040270,skyblue);
     height: 83%;
     width: 100%;
     padding-top: 0px;
@@ -159,9 +211,10 @@ a.active,a:hover{
 .website_title {
     
     text-transform: uppercase;
-    text-shadow: -15px 5px 20px #727477;
+    /* text-shadow: -15px 5px 20px #727477; */
+    text-shadow: -15px 5px 20px skyblue;
     color: black;
-    letter-spacing: -0.01em;
+    /* letter-spacing: -0.01em; */
     font-family: 'Anton', Arial, sans-serif;
     user-select: none;
     text-transform: uppercase;
@@ -180,7 +233,7 @@ h4{
  }
  
 .website_title:hover {
-    text-shadow: -16px 6px 15px#727477;
+    text-shadow: -16px 6px 15px skyblue;
 }
 /*working with title ended here*/
 
@@ -196,10 +249,13 @@ h4{
 
 .btn{
     padding-top: 0px;
-    background: none;
-  border: 1px solid gray;
+    /* background: none; */
+  /* border: 1px solid gray; */
+  border: 1px solid white;
+  background-color: #0563df;
   font-size: 23px;
   padding: 10px 30px;
+  color:white;
   font-family: "montserrat";
   cursor: pointer;
   transition: 0.8s;
@@ -310,7 +366,9 @@ footer {
 
 .about {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    /* margin-bottom: 20px; */
+
 }
 
 .sec-1 h2 {
@@ -381,7 +439,7 @@ i {
 }
 
 .sec-2 a:hover {
-    background-color: orange;
+    color: orange;
 }
 
 .sec-3 {
@@ -560,7 +618,7 @@ i {
 }
 
 .sec-2 a:hover {
-    background-color: orange;
+    color: orange;
 }
 
 .sec-3 {
