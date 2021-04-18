@@ -1,64 +1,70 @@
-*{
-    background: url("../images/index.jpg");
-}
-h2{
-    padding-top: 70px;
-    font-size: 50px;
-    letter-spacing: 1px;
-    padding-left: 20px;
-}
-p{
-    font-size: 18px;
-    padding-top: -10px;
-    padding-left: 40px;
-    padding-right: 70px;
-    text-align: justify;
-    line-height: 25px;
-}
-img{
-    width: 300px;
-    height: 300px;
-    padding-left: 0px;
-    padding-right: 10px;
-}
-/*about class ended by here*/
 
-.list{
-    padding-left: 60px;
-    padding-right: 450px;
-    font-size: 18px;
-    text-align: justify;
-    list-style-type: disc;
+.banner{
+    width: 1500px;
+    height: 100vh;
+    text-align: center;
+    color: navy;
+    max-width: 100%;
+    margin-top: 0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    background-size: 100% 100%;
+    background:linear-gradient(#040270,skyblue);
+
+}
+h1{
+    color: white;
+    font-size: 5rem;
+}
+.col{
+    flex-basis: 50%;
+    color: white;
+}
+.card{
+  
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    transition: transform 0.5s;
+    background-position: right;
+    background-size: cover;
     
 }
-
-
-.members_img{
-    width:200px;
-    height:200px;
-    margin-left: 85px;
-    border-radius: 10%;
-    margin-top: 20px;
-
+.card1{
+  background-image: url(../images/riya.jpeg);
+ 
+}
+.card2{
+  background-image: url(../images/neha.jpeg);
+}
+.card3{
+  background-image: url(../images/shivani.jpeg);
+}
+.card4{
+  background-image: url(../images/harshit.jpeg);
+}
+.card:hover{
+    transform: translateY(-10px);
+}
+h5{
+    color: #fff;
+    text-shadow: 0 0 5px #999;
 }
 
-
-.members_img:hover{
-    color: #111; 
-    box-shadow: 0 0 50px gray; 
+.card p{
+    text-shadow: 0 0 15px #000;
+    font-size: 8px;
 }
 
-h3{
-    padding-top: 30px;
-    font-size: 26px;
+.row{
+    display:inline-flex;
+    height: 88%;
+    align-items: center;
     margin-left: 100px;
-}
-@media (max-width: 1080px){
-
-    .members_img{
-        width:  200px;
-        height: 200px;
-        margin-left: 15px;
-        
-    
+    margin-top: 50px;
 }
