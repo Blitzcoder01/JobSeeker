@@ -2,11 +2,19 @@
 
 A website that helps to hire and seeking jobs for unemployed people.
 
+# External commands to execute the project
+*************************************
+$npm init
+$npm i express mongoose body-parser
+$nodemon server.js
 
+**************************************
 # Contributors:
 
 - [Riya Mathur](https://github.com/Blitzcoder01)
 - [Neha Adnekar](https://github.com/Nehaadnekar)
+- [Shivani Tyagi](https://github.com/Shivani141001)
+- [Harshit Jaiswal](https://github.com/harshitjaiswal2307)
 
 # Contacts:
 Feel free to contact us if you have any further queries, at:
