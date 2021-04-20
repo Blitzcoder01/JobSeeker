@@ -4,9 +4,9 @@ A website that helps to hire and seeking jobs for unemployed people.
 
 # External commands to execute the project
 *************************************
-$npm init
-$npm i express mongoose body-parser
-$nodemon server.js
+$npm init  <br>
+$npm i express mongoose body-parser    <br>
+$nodemon server.js         <br>
 
 **************************************
 # Contributors:
