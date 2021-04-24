@@ -21,7 +21,7 @@
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     grid-auto-rows: auto;
     gap: 20px;
-    font-family: sans-serif;
+    
     padding-top: 120px;
 }
 
@@ -33,7 +33,7 @@
 
 .card__image {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
     display: block;
     border-top: 1px solid rgb(76, 197, 245);
@@ -61,23 +61,21 @@
 }
 
 .card__info {
-    padding: 15px;
-    display: flex;
+    padding: 2px;
+    
     justify-content: space-between;
     align-items: center;
-    color: white;
-    background: black;
-    font-size: 0.8em;
+    text-align: center;
+    color: black;
+    background:linear-gradient(cyan,skyblue);
+    
+    font-size: 0.4em;
     border-bottom: 1px solid rgb(76, 197, 245);
     border-right: 1px solid rgb(76, 197, 245);
     border-left: 1px solid rgb(76, 197, 245);
     
 }
 
-.card__info i {
-    font-size: 0.9em;
-    margin-right: 8px;
-}
 
 .card__link {
     color: #64968c;
@@ -117,21 +115,29 @@
     </div>
 
   <div class="cards">
-    <%UserList.forEach(model => {%>
+    <%UserList.forEach(imgModel => {%>
     <div class="card">
-      <img class="card__image" src="/images/user.jpg" alt="">
+      <img class="card__image" src="data:images/<%=imgModel.img.contentType%>;base64,
+      <%=imgModel.img.data.toString('base64')%>" alt="">
       <div class="card__content">
           <br>
-        <h4 class="card-title" ><span>Name: </span><%= model.FullName %></h4>
-      <h6 class="card-title"><span>Profession: </span><%= model.Occupation %></h6>
-      <h6 class="card-title"><span>Contact: </span><%= model.Contact %></h6>
-      <h6 class="card-title" ><span>Address: </span><%= model.Address %></h6>
-      <h6 class="card-title" ><span>Experience: </span><%= model.Experience %></h6>
-      <h6 class="card-title" ><span>DOB: </span><%= model.DOB %></h6>
-      <h6 class="card-title" ><span>Education: </span><%= model.Education %></h6>
-      <p class="card-text"><span>Details: </span><%= model.Description %></p>
+          <h4>Profile Details: </h4>
+        <h6 class="card-title" ><span>Name: </span><%= imgModel.FullName %></h6>
+        <h6 class="card-title"><span>Email: </span><%= imgModel.Email %></h6>
+      <h6 class="card-title"><span>Profession: </span><%= imgModel.Occupation %></h6>
+      <h6 class="card-title"><span>Contact: </span><%= imgModel.Contact %></h6>
+      <h6 class="card-title" ><span>Address: </span><%= imgModel.Address %></h6>
+      <h6 class="card-title" ><span>Experience: </span><%=imgModel.Experience %></h6>
+      <h6 class="card-title" ><span>DOB: </span><%= imgModel.DOB %></h6>
+      <h6 class="card-title" ><span>Education: </span><%= imgModel.Education %></h6>
+      <p class="card-text"><span>Details: </span><%= imgModel.Description %></p>
       </div>
-      
+      <a href="mailto:<%= imgModel.Email %>">
+      <div class="card__info">
+       <h4>Contact Me</h4>
+        </div>
+    </a>
+      </div>
     </div>
 
     <%})%>
