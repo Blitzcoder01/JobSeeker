@@ -1,59 +1,72 @@
 const express =require("express");
 const app = express();
-const mongoose= require("mongoose");
+var mongoose= require("mongoose");
 const bodyParser= require("body-parser");
-const ejs = require('ejs');
+var ejs = require('ejs');
+app.set("views","./views");
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/register',express.static('register'));
 app.use('/images',express.static('images'));
 app.use('/main',express.static('main'));
+app.use('/views',express.static('views'));
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+var fs = require('fs');
+var path = require('path');
 
 mongoose.connect("mongodb+srv://JobSeekingDB:MydbJobSeeking@clusterjobseekingwebsit.hl6tp.mongodb.net/JobSeekingDatabase" ,{useNewUrlParser:true},{useUnifiedTopology:true})
 
-//create schema
-const CollectionSchema= {
-    FullName: String,
-    Occupation: String,
-    Contact: Number,
-    Address: String,
-    Experience: String,
-    DOB: String,
-    Education: String,
-    Description: String,
-    image: String
-    
-}
+
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, 'uploads')
+	},
+	filename: (req, file, cb) => {
+		cb(null, file.fieldname + '-' + Date.now())
+	}
+});
+
+var upload = multer({ storage: storage });
 
 
-const model= mongoose.model("model", CollectionSchema);
+var imgModel = require('./model/models');
 
 app.get("/",function(req, res){
     res.sendFile(__dirname+"/index.html");
     
 })
+app.get('/views/submit_form', (req, res) => {
+	imgModel.find({}, (err, items) => {
+		if (err) {
+			console.log(err);
+			res.status(500).send('An error occurred', err);
+		}
+		else {
+			res.render('submit_form', { items: items });
+		}
+	});
+});
 
-app.get("/views",function(req, res){
+
+
+app.get("/views/mogo_card",function(req, res){
     //res.render("mogo_card")
-    model.find({},function(err, models) {
+    imgModel.find({},function(err,imgModel) {
         res.render('mogo_card',{
-            UserList: models
+            UserList: imgModel
         })
     })  
 })
 
+app.post('/views/submit_form', upload.single('image'), (req, res, next) => {
 
-app.get("/register/submit_form.html",function(req, res){
-    res.sendFile(__dirname+"/submit_form.html");
-    
-})
-
-
-//app.post
-app.post("/register/submit_form.html", function(req, res ){
-    let newNode= new model({
-        FullName: req.body.Fullname,
+	var obj = {
+		FullName: req.body.Fullname,
+		Email: req.body.Email,
         Occupation: req.body.Occupation,
         Contact:req.body.Contact,
         Address: req.body.Address,
@@ -61,21 +74,23 @@ app.post("/register/submit_form.html", function(req, res ){
         DOB: req.body.dob,
         Education: req.body.Education,
         Description: req.body.BreafIntro,
-        image: req.body.image
-    })
-    
-    newNode.save();
-    res.redirect("/");
+		img: {
+			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+			contentType: 'image/jpeg'
+		}
+	}
+	imgModel.create(obj, (err, item) => {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			 item.save();
+          
+			res.redirect('/');
+		}
+	});
+});
 
-})
-
-// app.get("/search/:Occupation", function(req, res){
-//     var ragex= new RegExp(req.params.Occupation,'i')
-//     //i means it accept both small and capital inputs
-//     model.find({Occupation}).then((result){
-//     res.status(200).json(result)
-//     })
-// })
 app.listen(3001,function(){
 	console.log("server is running on 3001");
 })
